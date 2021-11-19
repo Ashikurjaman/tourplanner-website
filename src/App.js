@@ -13,6 +13,7 @@ import Package from './Component/Package/Package';
 import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 import SetPLane from './Component/SetPlane/SetPLane';
 import AuthProvider from './Context/AuthProvider';
+import MyOrders from './Myorder/Myorder';
 
 function App() {
   return (
@@ -27,8 +28,11 @@ function App() {
 
             </Home>
           </Route>
-          <PrivateRoute exact path="/setplan">
+          <PrivateRoute exact path="/setplan/:_id">
             <SetPLane></SetPLane>
+          </PrivateRoute>
+          <PrivateRoute exact path="/myorder">
+            <MyOrders></MyOrders>
           </PrivateRoute>
           <Route exact path="/about">
             <About></About>
@@ -45,9 +49,7 @@ function App() {
           <PrivateRoute exact path="/myplan">
             <Myplan></Myplan>
           </PrivateRoute>
-          <PrivateRoute exact path="/package/:packsId">
-            <Package></Package>
-          </PrivateRoute>
+          
           <Route exact path="/">
             <Home></Home>
           </Route>

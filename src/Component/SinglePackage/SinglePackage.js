@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const SinglePackage = (props) => {
-    const {name, img, description,price,_id} = props.packs;
+const SinglePackage = ({packs}) => {
+    const {name, img, description,price,_id} = packs;
+    
     return (
         <div className="col ">
               <div className="card h-100">
@@ -17,7 +18,7 @@ const SinglePackage = (props) => {
                     {description.slice(0,100)}
                   </p>
                   <p>Price: {price}TK</p>
-                  <Link to={`/package/${_id}`}>
+                  <Link to={`/setplan/${_id}`}>
                         <button className="btn btn-primary">Book Now</button>
                     </Link>
                 </div>

@@ -1,36 +1,84 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 
 const Header = () => {
   const {user, logOut} = useAuth()
     return (
-        <div>
-            <nav ClassName="navbar navbar-expand-lg navbar-light bg-light">
-  <div ClassName="container-fluid">
-    <Link ClassName="navbar-brand" to="/home">TourPlanner</Link>
-    <button ClassName="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span ClassName="navbar-toggler-icon"></span>
-    </button>
-    <div ClassName="collapse navbar-collapse" id="navbarText">
-      <ul ClassName="navbar-nav me-auto mb-2 mb-lg-0">
-        <li ClassName="nav-item">
-          <Link ClassName="nav-link " aria-current="page" to="/home">Home</Link>
-        </li>
-        {/* <li ClassName="nav-item">
-          <Link ClassName="nav-link" to="/package">Package</Link>
-        </li> */}
-        <li ClassName="nav-item">
-          <Link ClassName="nav-link " to="/setplan">Set Plan</Link>
-        </li>
-        <li ClassName="nav-item">
-          <Link ClassName="nav-link" to="/about">About Us</Link>
-        </li>
+      <div>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+          <Link className="navbar-brand" to="/">
+            TourPlanner
+          </Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+      <li className="nav-item ms-2">
+                <NavLink
+                  activeStyle={{
+                    fontWeight: "bold",
+                    color: "#416a59",
+                  }}
+                  className="ms-4 text-decoration-none"
+                  style={{ color: "#39395f" }}
+                  to="/home"
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li className="nav-item ms-2">
+                <NavLink
+                  activeStyle={{
+                    fontWeight: "bold",
+                    color: "#416a59",
+                  }}
+                  className="ms-4 text-decoration-none"
+                  style={{ color: "#39395f" }}
+                  to="/package"
+                >
+                  Package
+                </NavLink>
+              </li>
+              
+              <li className="nav-item ms-2">
+                <NavLink
+                  activeStyle={{
+                    fontWeight: "bold",
+                    color: "#416a59",
+                  }}
+                  className="ms-4 text-decoration-none"
+                  style={{ color: "#39395f" }}
+                  to="/about"
+                >
+                  About Us
+                </NavLink>
+              </li>
         
-        <li ClassName="nav-item">
-          <Link ClassName="nav-link" to="/contact">Contact</Link>
-        </li>
+              <li className="nav-item ms-2">
+                <NavLink
+                  activeStyle={{
+                    fontWeight: "bold",
+                    color: "#416a59",
+                  }}
+                  className="ms-4 text-decoration-none"
+                  style={{ color: "#39395f" }}
+                  to="/contact"
+                >
+                  Contact Us
+                </NavLink>
+              </li>
       </ul>
 
       
@@ -38,14 +86,67 @@ const Header = () => {
       {
         user.email?
         <span>
-          <ul ClassName="navbar-nav me-auto mb-2 mb-lg-0">
-          <li ClassName="nav-item">
-          <Link ClassName="nav-link" to="/myplan">My Plans</Link>
-        </li>
-        <li ClassName="nav-item">
-        <button ClassName="navbar-text btn btn-primary" onClick={logOut} >Logout </button>
-        </li>
-        </ul>
+          
+          <Link to="/dashboard">
+                    <button
+                      style={{
+                        backgroundColor: "#39395f",
+                        color: "#fff",
+                        marginRight: "10px",
+                      }}
+                      className="btn "
+                    >
+                      DashBoard
+                    </button>
+                  </Link>
+                  <Link to="/myorder">
+                    <button
+                      style={{
+                        backgroundColor: "#39395f",
+                        color: "#fff",
+                        marginRight: "10px",
+                      }}
+                      className="btn "
+                    >
+                      myorder
+                    </button>
+                  </Link>
+
+                  <Link to="/manageallorders">
+                    <button
+                      style={{
+                        backgroundColor: "#39395f",
+                        color: "#fff",
+                        marginRight: "10px",
+                      }}
+                      className="btn "
+                    >
+                      Manage All Orders
+                    </button>
+                  </Link>
+                  <Link to="/addnewservice">
+                    <button
+                      style={{
+                        backgroundColor: "#39395f",
+                        color: "#fff",
+                        marginRight: "10px",
+                      }}
+                      className="btn "
+                    >
+                      Add new service
+                    </button>
+                  </Link>
+        
+                  <Link to="/">
+                    <button
+                      onClick={logOut}
+                      style={{ backgroundColor: "#39395f", color: "#fff" }}
+                      className="btn "
+                    >
+                      Logout
+                    </button>
+                  </Link>        
+        
           
           
           
